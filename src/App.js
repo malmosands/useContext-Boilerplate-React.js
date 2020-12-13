@@ -1,13 +1,17 @@
 import logo from './logo.svg';
 import './App.css';
+import { StoreContext } from './utils/store';
+import { useContext } from 'react';
 
 function App() {
+  const { item } = useContext(StoreContext);
+
   return (
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
-          Edit <code>src/App.js</code> and save to reload.
+          Item Title: {item}
         </p>
         <a
           className="App-link"
