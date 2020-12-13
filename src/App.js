@@ -4,7 +4,12 @@ import { StoreContext } from './utils/store';
 import { useContext } from 'react';
 
 function App() {
-  const { item } = useContext(StoreContext);
+  const { item, setItem } = useContext(StoreContext);
+
+  const submit = (event) => {
+    event.preventDefault();
+    setItem(event.target.title.value)
+  }
 
   return (
     <div className="App">
@@ -13,6 +18,9 @@ function App() {
         <p>
           Item Title: {item}
         </p>
+        <form onSubmit={submit}>
+          <input type="text" name="title" placeholder="Update Item Title" />
+        </form>
         <a
           className="App-link"
           href="https://reactjs.org"
